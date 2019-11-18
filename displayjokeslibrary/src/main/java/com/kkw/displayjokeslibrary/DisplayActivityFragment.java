@@ -14,6 +14,7 @@ import android.widget.TextView;
  * A placeholder fragment containing a simple view.
  */
 public class DisplayActivityFragment extends Fragment {
+    public static final String JOKE = "joke";
 
     public DisplayActivityFragment() {
     }
@@ -23,14 +24,12 @@ public class DisplayActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_display, container, false);
         Intent intent = getActivity().getIntent();
-        if (intent.hasExtra("JOKE")){
+        if (intent.hasExtra(JOKE)){
             TextView tvJoke =  view.findViewById(R.id.tv_joke);
-            String jokeToDisplay = intent.getStringExtra("JOKE");
+            String jokeToDisplay = intent.getStringExtra(JOKE);
             tvJoke.setText(jokeToDisplay);
             Log.d("JOKE", jokeToDisplay);
         }
-        Log.d("JOKE", "NO");
-
         return view;
     }
 }

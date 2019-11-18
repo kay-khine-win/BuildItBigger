@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
-   // private Context context;
 
     @Override
     protected String doInBackground(Context... params) {
@@ -29,12 +28,11 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
             myApiService = builder.build();
         }
 
-        //context = params[0];
-
         try {
             return myApiService.getRandomJoke().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            return null;
+            //return e.getMessage();
         }
     }
 

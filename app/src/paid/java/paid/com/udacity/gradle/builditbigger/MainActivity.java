@@ -15,7 +15,7 @@ import com.kkw.displayjokeslibrary.DisplayActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRAS_JOKE = "joke";
+    public static final String JOKE = "joke";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTaskComplete(String result) {
                 Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
-                intent.putExtra("JOKE", result);
-                Log.d("JOKE", result.toString());
+                intent.putExtra(JOKE, result);
 
                 startActivity(intent);
 
